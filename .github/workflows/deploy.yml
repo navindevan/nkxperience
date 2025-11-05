@@ -37,10 +37,15 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: npm run build
 
-      - name: Upload artifact
+      - name: Ensure .nojekyll in export
+        run: |
+          mkdir -p ./out/nkxperience
+          touch ./out/nkxperience/.nojekyll
+
+      - name: Upload artifact (project basePath)
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./out/nkxperience
 
   deploy:
     environment:
