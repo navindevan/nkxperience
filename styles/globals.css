@@ -4,14 +4,21 @@
 
 html, body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-white text-gray-800;
+  @apply bg-white text-gray-800 antialiased;
 }
 
+/* Smooth transitions for all interactive elements */
+a, button {
+  @apply transition-colors duration-200;
+}
+
+/* Remove default link styles */
 a {
-  @apply text-blue-600 hover:text-blue-700;
+  @apply no-underline;
 }
 
 
